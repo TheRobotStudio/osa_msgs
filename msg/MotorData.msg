@@ -1,5 +1,8 @@
-# This custom message allows to define a variable to collect data for a specific motor.
+# This custom message holds the data for a specific motor.
 
-int32 position		# motor encoder position in steps
-int16 current		# current pulled by the motor in mA
-uint16 status		# statusword of the motor controller
+int32 position			# Motor encoder position actual value in encoder steps.
+int32 velocity			# Motor velocity in rpm.
+int16 current			# Current actual value averaged (mA).
+int16 following_error	# Following error actual value (encoder steps), not for EPOS4.
+uint16 status			# Statusword of the motor controller.
+int8 mode_of_operation	# Mode of operation display.

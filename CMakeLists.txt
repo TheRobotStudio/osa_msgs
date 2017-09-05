@@ -81,14 +81,14 @@ include_directories(
 # )
 
 ## Declare a cpp executable
-add_executable(osa_motorDataExtended src/motorDataExtended.cpp)
+#add_executable(osa_motor_data_extended src/motor_data_extended.cpp)
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
-add_dependencies(osa_motorDataExtended osa_msgs_generate_messages_cpp)
+#add_dependencies(osa_motor_data_extended osa_msgs_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(osa_motorDataExtended ${catkin_LIBRARIES} )
+#target_link_libraries(osa_motor_data_extended ${catkin_LIBRARIES} )
 
 #############
 ## Install ##
