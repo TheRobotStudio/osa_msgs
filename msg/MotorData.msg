@@ -1,5 +1,6 @@
 # This custom message holds the data for a specific motor.
 
+uint8 node_id			# Node ID on the CAN bus
 int32 position			# Motor encoder position actual value in encoder steps.
 int32 velocity			# Motor velocity in rpm.
 int16 current			# Current actual value averaged (mA).
