@@ -1,10 +1,12 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(trs_msgs)
+project(osa_msgs)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  cmake_modules
+  roscpp
   message_generation
   std_msgs
 )
@@ -26,9 +28,11 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
   FILES
   MotorCmd.msg
-  MotorCmdSet.msg
   MotorData.msg
-  MotorDataSet.msg
+  MotorCmdMultiArray.msg  
+  MotorDataMultiArray.msg
+  MotorDataExtended.msg
+  MotorDataExtendedMultiArray.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -55,7 +59,7 @@ generate_messages(
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES trs_msgs
+#  LIBRARIES osa_msgs
 #  CATKIN_DEPENDS std_msgs
 #  DEPENDS system_lib
 )
@@ -72,21 +76,19 @@ include_directories(
 )
 
 ## Declare a cpp library
-# add_library(trs_msgs
-#   src/${PROJECT_NAME}/trs_msgs.cpp
+# add_library(osa_msgs
+#   src/${PROJECT_NAME}/osa_msgs.cpp
 # )
 
 ## Declare a cpp executable
-# add_executable(trs_msgs_node src/trs_msgs_node.cpp)
+add_executable(osa_motorDataExtended src/motorDataExtended.cpp)
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
-# add_dependencies(trs_msgs_node trs_msgs_generate_messages_cpp)
+add_dependencies(osa_motorDataExtended osa_msgs_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(trs_msgs_node
-#   ${catkin_LIBRARIES}
-# )
+target_link_libraries(osa_motorDataExtended ${catkin_LIBRARIES} )
 
 #############
 ## Install ##
@@ -103,7 +105,7 @@ include_directories(
 # )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS trs_msgs trs_msgs_node
+# install(TARGETS osa_msgs osa_msgs_node
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -128,7 +130,7 @@ include_directories(
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_trs_msgs.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_osa_msgs.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
