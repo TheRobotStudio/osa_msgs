@@ -5,7 +5,7 @@
   <description>Package that defines custom messages for the motor commands and data</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
-  <maintainer email="rob.knight@therobotstudio.com">Rob Knight</maintainer>
+  <maintainer email="contact@therobotstudio.com">Rob Knight</maintainer>
 
   <!-- One license tag required, multiple allowed, one license per tag -->
   <!-- Commonly used license strings: -->
